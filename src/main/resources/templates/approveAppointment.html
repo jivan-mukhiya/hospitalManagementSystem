@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Approve Appointment</title>
+</head>
+
+<body style="display: flex;">
+	<th:block th:insert="Header.html"></th:block>
+
+	<div class="main-content"
+		style="margin-left: 250px; padding: 20px; width: 100%;">
+		<div class="container">
+
+			<div class="card-body" style="background-color: aqua;">
+			<h1 class="text-center mb-4">Appointment Approve</h1>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Doctor</th>
+							<th>Slots</th>
+							<th>Fee</th>
+							<th>Details</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="A: ${aLsit}">
+							<td>[[${A.doctor.name}]]</td>
+							<td>[[${A.slots}]]</td>
+							<td>[[${A.consultationFee}]]</td>
+							<td>[[${A.details}]]</td>
+							<td><a th:href="@{/Approve(id=${A.id})}"><input
+									type="submit" value="Approve" class="btn btn-danger"></a></td>
+
+						</tr>
+
+					</tbody>
+				</table>
+
+			</div>
+
+
+		</div>
+	</div>
+</body>
+
+</html>
